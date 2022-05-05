@@ -8,7 +8,7 @@ main() async {
   if (nums.last == 1) {
     writer.write(1);
   } else {
-    writer.write((nums.last / 2).toInt() + 1);
+    writer.write(nums.last ~/ 2 + 1);
   }
   await writer.close();
   exit(0);

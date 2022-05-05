@@ -6,7 +6,7 @@ main() async {
 
   var writer = stdout.nonBlocking;
   if (nums.last % 4 == 0) {
-    writer.write((nums.last / 2).toInt());
+    writer.write(nums.last ~/ 2);
   } else {
     writer.write(-1);
   }

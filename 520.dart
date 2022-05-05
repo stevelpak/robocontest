@@ -1,8 +1,7 @@
 import 'dart:io';
 
 main() async {
-  Iterable<int> nums =
-      stdin.readLineSync()!.split(" ").map((e) => int.parse(e));
+  stdin.readLineSync()!;
 
   var writer = stdout.nonBlocking;
   writer.write(1);
