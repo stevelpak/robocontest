@@ -1,19 +1,18 @@
 import 'dart:io';
-import 'dart:math';
 
 main() async {
   int son = int.parse(stdin.readLineSync()!);
-  int sanoq = 0;
+  int d = son % 10;
+  int sanoq = (son ~/ 10) * 2;
   var writer = stdout.nonBlocking;
 
-  for (var i = 0; i <= son; i++) {
-    if ((pow(i, 10) + 1) % 10 == 0) {
-      sanoq++;
-    }
+  if (d > 6) {
+    writer.write(sanoq + 2);
+  } else if (d > 2) {
+    writer.write(sanoq + 1);
+  } else {
+    writer.write(sanoq);
   }
-
-  writer.write(sanoq);
-
   await writer.close();
   exit(0);
 }
