@@ -1,19 +1,19 @@
 import 'dart:io';
 
 main() {
-  Iterable<String> nums = stdin.readLineSync()!.split("");
-  var sum = 0;
+  int son = int.parse(stdin.readLineSync()!);
 
-  if (nums.first == "-") {
-    for (var i = 1; i < nums.length; i++) {
-      sum += int.parse(nums.elementAt(i));
+  if (son < 0) {
+    son = son.abs();
+    if (son < 10) {
+      print(son * (-1));
+    } else {
+      print(int.parse(son.toString().substring(1, son.toString().length)) -
+          int.parse(son.toString().substring(0, 1)));
     }
-    print(sum);
   } else {
-    for (var i = 0; i < nums.length; i++) {
-      sum += int.parse(nums.elementAt(i));
-    }
-    print(sum);
+    print(son);
   }
+
   exit(0);
 }
