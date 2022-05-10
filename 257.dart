@@ -1,22 +1,23 @@
 import 'dart:io';
 
 main() async {
-  String num = "";
-  int c = 0;
-  num = "0" + stdin.readLineSync()!.toString();
+  var input = File('input.txt');
+  var output = File('output.txt');
+  var writer = output.openWrite();
 
-  for (var i = 0; i < num.length - 1; i++) {
-    if (num[i] == "0" && num[i + 1] == "1" && c <= 2) {
-      c += 1;
+  String s = "0" + input.readAsStringSync();
+  int n = 0;
+  for (int i = 0; i < s.length - 1; i++) {
+    if (s[i] == '0' && s[i + 1] == '1' && n <= 2) {
+      n++;
     }
   }
 
-  var writer = stdout.nonBlocking;
-  if (c <= 1) {
-    writer.write("YES");
-  } else {
-    writer.write("NO");
-  }
+  if (n <= 1) {
+    writer.write('YES');
+  } else
+    writer.write('NO');
+ 
   await writer.close();
   exit(0);
 }
